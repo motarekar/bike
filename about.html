@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="ar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Smart Bikes</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="container">
+        <div class="logo">
+          <img src="images/logo.png" alt="" />
+        </div>
+        <div class="mobile-menu-btn" onclick="toggleMobileMenu()">
+          <i class="fas fa-bars"></i>
+        </div>
+        <nav class="desktop-nav">
+          <ul class="nav-links">
+            <li class="nav-item">
+<a href="index.html">Home</a>
+            </li>
+            <li class="nav-item has-dropdown parent-link">
+                    <a href="about.html" class="active">About <i class="fas fa-chevron-down"></i></a>
+              <ul class="submenu">
+                <li><a href="#">Submenu 1</a></li>
+                <li class="has-second-dropdown">
+                  <a href="#"
+                    >Dropdown menu <i class="fas fa-chevron-right"></i
+                  ></a>
+                  <ul class="second-submenu">
+                    <li><a href="#">Submenu 1</a></li>
+                    <li><a href="#">Submenu 2</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">Submenu 2</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a href="service.html">Services</a></li>
+            <li class="nav-item"><a href="blog.html">Blog</a></li>
+            <li class="nav-item"><a href="shop.html">Shop</a></li>
+            <li class="nav-item"><a href="faq.html">FAQ</a></li>
+            <li class="nav-item"><a href="contact.html">Contact</a></li>
+          </ul>
+          <div class="mobile-social">
+            <a href="#" class="social-item fb" data-name="FACEBOOK"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" class="social-item tw" data-name="X (TWITTER)"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a href="#" class="social-item inst" data-name="INSTAGRAM"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </div>
+          <p class="copyright-text">© COPYRIGHT 2026</p>
+          <div class="nav-indicator"></div>
+        </nav>
+
+        <div class="header-tools">
+          <a href="service.html" class="help-btn">
+            <i class="fas fa-bicycle"></i> Help & Service
+          </a>
+          <div class="tool-icons-container">
+            <a href="wishlist.html"
+              ><div class="icon-wrap">
+                <i class="far fa-heart"></i><span class="dot">0</span>
+              </div></a
+            >
+            <a href="cart.html"
+              ><div class="icon-wrap">
+                <i class="fas fa-shopping-basket"></i><span class="dot">0</span>
+              </div></a
+            >
+          </div>
+        </div>
+      </div>
+    </header>
+    <nav class="breadcrumb-nav">
+      <a href="index.html" class="bc-item home-link">
+        <i class="fas fa-home"></i>
+      </a>
+      <span class="bc-separator"><i class="fas fa-bicycle"></i></span>
+      <a href="about.html"><span class="bc-item active-page">About</span></a>
+    </nav>
+    <section class="about-section">
+      <div class="visual-hero-frame">
+        <div class="massive-slant-bg"></div>
+        <img
+          src="images/about-1.png"
+          alt="Smart Bike"
+          class="hero-cycle-asset"
+        />
+      </div>
+
+      <div class="info-block-wrapper">
+        <h1 class="prime-title">
+          About our <span class="accent-color">Smart Bikes</span>
+        </h1>
+        <p class="summary-text">
+          At Velocity Cycles, we're more than just a bike shop – we're a
+          community of cycling enthusiasts dedicated to providing high-quality
+          bikes, expert services, and unmatched customer care. Whether you're a
+          commuter, a weekend warrior, or a pro rider, we're here to keep you
+          rolling.
+        </p>
+
+        <ul class="prime-features-list">
+          <li class="feature-row">
+            <span class="action-trigger"
+              ><i class="fas fa-angles-right"></i
+            ></span>
+            Road, Mountain, and Electric Bikes
+          </li>
+          <li class="feature-row">
+            <span class="action-trigger"
+              ><i class="fas fa-angles-right"></i
+            ></span>
+            Professional Bike Repairs & Tune-Ups
+          </li>
+          <li class="feature-row">
+            <span class="action-trigger"
+              ><i class="fas fa-angles-right"></i
+            ></span>
+            Helmets, Apparel & Accessories
+          </li>
+          <li class="feature-row">
+            <span class="action-trigger"
+              ><i class="fas fa-angles-right"></i
+            ></span>
+            Bike Fitting & Custom Builds
+          </li>
+          <li class="feature-row">
+            <span class="action-trigger"
+              ><i class="fas fa-angles-right"></i
+            ></span>
+            Local Group Rides & Events
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="velocity-bestsellers-section">
+      <div class="infinite-marquee-container">
+        <div class="marquee-track">
+          <span>BESTSELLERS MEET UP</span>
+          <span>BESTSELLERS MEET UP</span>
+          <span>BESTSELLERS MEET UP</span>
+        </div>
+      </div>
+      <div class="grand-layout-box">
+        <div class="text-content-zone">
+          <h2 class="prime-title">
+            Your Ride. <span class="accent-orange">Our Passion.</span>
+          </h2>
+          <p class="prime-description">
+            Founded in 1990 by two lifelong cyclists, Velocity Cycles began as a
+            small workshop in a garage. Driven by a love for two wheels and the
+            open road, we've grown into a trusted local brand.
+          </p>
+          <div class="action-btn-group">
+            <button class="dynamic-primary-btn">Read full story</button>
+            <span class="caption-note">From Passion to Pedals</span>
+          </div>
+        </div>
+
+        <div class="visual-asset-frame">
+          <img
+            src="images/julian-hochgesang-D-a6NgKizOE-unsplash.jpg"
+            alt="Rider"
+          />
+          <div class="image-overlay-only"></div>
+        </div>
+      </div>
+
+      <div class="feature-card-grid">
+        <!-- Card 1 -->
+        <div class="feature-card">
+          <img src="images/about1.png" />
+          <div class="card-focus-layer">
+            <div class="hover-diamond"></div>
+            <div class="label-group">
+              <span class="card-label">Personalized</span>
+              <span class="hover-info">Frame & Geometry Selection</span>
+            </div>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="feature-card">
+          <img src="images/8.png" />
+          <div class="card-focus-layer">
+            <div class="hover-diamond"></div>
+            <div class="label-group">
+              <span class="card-label">Component Matching</span>
+              <span class="hover-info">Professional Assembly & Fitting</span>
+            </div>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="feature-card">
+          <img src="images/2.png" />
+          <div class="card-focus-layer">
+            <div class="hover-diamond"></div>
+            <div class="label-group">
+              <span class="card-label">Perfect for serious riders</span>
+              <span class="hover-info">Gear & Brake Hover</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="bicycle-section">
+      <div class="text-content">
+        <div class="titles">
+          <h2 class="white-text">Explore Our Best</h2>
+          <h2 class="orange-text">Smart Bicycles</h2>
+        </div>
+
+        <a href="#" class="btn-main">
+          Explore Smart Bikes <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="images/1.png" /></div>
+          <div class="swiper-slide"><img src="images/2.png" /></div>
+          <div class="swiper-slide"><img src="images/3.png" /></div>
+          <div class="swiper-slide"><img src="images/4.png" /></div>
+          <div class="swiper-slide"><img src="images/7.png" /></div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
+    <section class="partners-section">
+      <div class="partners-header">
+        <h2 class="txt-white">Our Trusted</h2>
+        <h2 class="txt-orange">Top Partners</h2>
+        <p class="txt-gray">
+          We collaborate with top cycling and outdoor companies to bring our
+          customers the best in quality, innovation, and performance.
+        </p>
+      </div>
+
+      <div class="partners-container">
+        <div class="logo-item">
+          <svg class="bike-svg-icon" viewBox="0 0 100 100">
+            <path
+              class="path-fill"
+              d="M 15 65 A 25 25 0 1 1 65 65 A 25 25 0 1 1 15 65 M 35 45 L 65 45 M 50 45 L 60 25 L 80 25 M 60 25 L 50 15 L 40 25 M 15 65 M 85 65 A 15 15 0 1 1 55 65 A 15 15 0 1 1 85 65"
+            />
+            <circle class="dot-fill" cx="70" cy="15" r="4" />
+          </svg>
+          <div class="logo-name">BICYCLE</div>
+        </div>
+
+        <div class="logo-item">
+          <svg class="bike-svg-icon" viewBox="0 0 120 60">
+            <path
+              class="path-fill"
+              d="M30,45 A15,15 0 1,1 30,15 C45,15 55,45 70,45 A15,15 0 1,0 70,15 C55,15 45,45 30,45 Z"
+            />
+            <path class="path-fill" d="M60,30 L70,10 L90,10 M70,10 L60,20" />
+          </svg>
+          <div class="logo-name font-tech">BIKES</div>
+        </div>
+
+        <div class="logo-item">
+          <svg class="bike-svg-icon" viewBox="0 0 120 80">
+            <path
+              class="path-fill"
+              d="M30,55 A15,15 0 1,1 30,54 Z M90,55 A15,15 0 1,1 90,54 Z M35,50 L55,25 L85,25 M55,25 L45,55 M65,25 L75,55"
+            />
+            <path class="path-fill" d="M80,25 L90,15 L100,15" />
+          </svg>
+          <div class="logo-name font-script">
+            Bicycle<br /><small>SHOP</small>
+          </div>
+        </div>
+
+        <div class="logo-item">
+          <svg class="bike-svg-icon" viewBox="0 0 120 80">
+            <path class="path-fill" d="M40,25 L55,10 L75,10 M55,10 L45,25" />
+            <path
+              class="path-fill"
+              d="M35,50 C20,50 20,25 35,25 C50,25 60,50 75,50 C90,50 90,25 75,25 C60,25 50,50 35,50"
+            />
+          </svg>
+          <div class="logo-name">BIKESHOP<br /><small>TAGLINE</small></div>
+        </div>
+
+        <div class="logo-item">
+          <svg class="bike-svg-icon" viewBox="0 0 120 60">
+            <circle class="path-fill" cx="25" cy="35" r="18" />
+            <circle class="path-fill" cx="95" cy="35" r="18" />
+            <path
+              class="bolt-fill"
+              d="M40,35 L75,20 L65,35 L85,35 L50,50 L60,35 Z"
+            />
+          </svg>
+          <div class="logo-name font-ebike">E-BIKE</div>
+        </div>
+
+        <div class="logo-item company-row">
+          <svg class="bike-svg-icon company-icon" viewBox="0 0 150 80">
+            <path
+              class="path-fill"
+              d="M30,50 A12,12 0 1,1 30,49 Z M70,50 A12,12 0 1,1 70,49 Z M45,45 L55,25 L65,35 M50,20 C55,10 65,10 60,20 L50,40 M20,35 L40,35 M80,35 L100,35"
+            />
+            <path
+              class="path-fill"
+              d="M55,25 L45,15 L55,5 M45,15 L35,25 M20,20 L35,20 M15,30 L30,30"
+            />
+          </svg>
+          <div class="company-text-box">
+            <div class="logo-name font-company">COMPANY</div>
+            <div class="tagline-small">YOUR TAGLINE HERE</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="footer-contact-bar">
+        <div class="contact-item">
+          <span
+            class="top-label"
+            style="
+              color: #ff6600;
+              display: block;
+              font-size: 0.9rem;
+              margin-bottom: 12px;
+            "
+            >Pre-sale Questions</span
+          >
+          <a href="mailto:help@xtrabicycle.com">help@xtrabicycle.com</a>
+        </div>
+        <div class="contact-item">
+          <span
+            class="top-label"
+            style="
+              color: #ff6600;
+              display: block;
+              font-size: 0.9rem;
+              margin-bottom: 12px;
+            "
+            >Call Us</span
+          >
+          <a href="tel:+180023456789">+1 800 2345 6789</a>
+        </div>
+        <div class="contact-item">
+          <span
+            class="top-label"
+            style="
+              color: #ff6600;
+              display: block;
+              font-size: 0.9rem;
+              margin-bottom: 12px;
+            "
+            >Our Location</span
+          >
+          <a href="#">#2354, Beverly Hills, LA</a>
+        </div>
+      </div>
+
+      <div class="footer-main-content">
+        <div class="footer-column">
+          <h3 class="footer-title">Office</h3>
+          <ul class="office-info">
+            <li>
+              <span class="icon-circle1"
+                ><i class="fas fa-map-marker-alt"></i
+              ></span>
+              <span class="text">121 King Street, New York</span>
+            </li>
+            <li>
+              <span class="icon-circle1"><i class="fas fa-phone-alt"></i></span>
+              <span class="text">+1 (800) 333 44 55</span>
+            </li>
+            <li>
+              <span class="icon-circle1"><i class="fas fa-envelope"></i></span>
+              <span class="text">xtrabike@gmail.com</span>
+            </li>
+            <li>
+              <span class="icon-circle1"
+                ><i class="fas fa-mobile-alt"></i
+              ></span>
+              <span class="text">+1 (800) 333 99 88</span>
+            </li>
+            <li>
+              <span class="icon-circle1"><i class="fab fa-twitter"></i></span>
+              <span class="text">@xtra_bikeshop</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3 class="footer-title">News</h3>
+          <div class="news-list">
+            <div class="news-post">
+              <div class="image-wrapper">
+                <img src="images/article1.jfif" alt="bike" />
+                <div class="overlay-link">
+                  <i class="fas fa-link"></i>
+                </div>
+              </div>
+              <div class="post-info">
+                <a href="#">Top 7 Must have Accessories for...</a>
+                <span>10 June 2024 <i class="far fa-comment"></i> 24</span>
+              </div>
+            </div>
+
+            <div class="news-post">
+              <div class="image-wrapper">
+                <img src="images/articl2.jfif" alt="bike" />
+                <div class="overlay-link">
+                  <i class="fas fa-link"></i>
+                </div>
+              </div>
+              <div class="post-info">
+                <a href="#">How to Choose the Perfect Bike for Yo...</a>
+                <span>10 June 2024 <i class="far fa-comment"></i> 18</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h3 class="footer-title">Shortcuts</h3>
+          <div class="shortcuts-wrapper">
+            <ul class="footer-links">
+              <li>
+                <a href="#"><i class="fas fa-chevron-right"></i> Home</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-chevron-right"></i> City Store</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-chevron-right"></i> News</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-chevron-right"></i> Clients</a>
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-chevron-right"></i> Consultation</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-chevron-right"></i> Consultation</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-chevron-right"></i> Consultation</a
+                >
+              </li>
+            </ul>
+            <ul class="footer-links">
+              <li>
+                <a href="#"><i class="fas fa-chevron-right"></i> Maps</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-chevron-right"></i> Careers</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-chevron-right"></i> Employees</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-chevron-right"></i> Teams</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-chevron-right"></i> Benefits</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-chevron-right"></i> Benefits</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h3 class="footer-title">Working Hours</h3>
+          <p class="working-desc">
+            Our support available to help you 24 hours a day, seven days a week.
+          </p>
+          <div class="schedule">
+            <div class="day-row">
+              <span>Monday to Friday</span><span>8AM - 4PM</span>
+            </div>
+            <div class="day-row">
+              <span>Saturday</span><span>8AM - 1PM</span>
+            </div>
+            <div class="day-row">
+              <span>Sunday</span><span class="orange-text">Closed</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>Copyright © 2026 Xtra Theme. All Rights Reserved.</p>
+        <div class="payment-icons">
+          <i class="fab fa-cc-visa"></i>
+          <i class="fab fa-cc-mastercard"></i>
+          <i class="fab fa-cc-paypal"></i>
+        </div>
+      </div>
+    </footer>
+    <div class="fixed-controls">
+      <button class="control-btn message-toggle" id="openForm">
+        <i class="fas fa-envelope"></i>
+      </button>
+      <button class="control-btn scroll-top" id="scrollTop">
+        <i class="fas fa-chevron-up"></i>
+      </button>
+    </div>
+    <div class="contact-popup" id="contactPopup">
+      <div class="popup-content">
+        <form id="contactForm">
+          <div class="input-group">
+            <input type="text" placeholder="Your Name (*)" id="nameInput" />
+            <span class="error-box"><i class="fas fa-times"></i></span>
+          </div>
+          <div class="input-group">
+            <input type="email" placeholder="Your Email (*)" id="emailInput" />
+            <span class="error-box"><i class="fas fa-times"></i></span>
+          </div>
+          <textarea placeholder="Your Message"></textarea>
+
+          <button type="submit" class="send-btn">Send Message</button>
+
+          <p class="form-error-msg">
+            One or more fields have an error. Please check and try again.
+          </p>
+        </form>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

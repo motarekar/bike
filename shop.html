@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bike Shop - Full Store</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="shop-page">
+    
+<header class="main-header">
+    <div class="container"> 
+     <div class="logo">
+    <img src="images/logo.png" alt="">
+</div>
+        <div class="mobile-menu-btn" onclick="toggleMobileMenu()">
+             <i class="fas fa-bars"></i>
+        </div>
+        <nav class="desktop-nav">
+            <ul class="nav-links">
+                <li class="nav-item" ><a href="index.html">Home</a></li>
+                <li class="nav-item has-dropdown parent-link">
+                    <a href="about.html">About <i class="fas fa-chevron-down"></i></a>
+                    <ul class="submenu">
+                        <li><a href="#">Submenu 1</a></li>
+                        <li class="has-second-dropdown">
+                            <a href="#">Dropdown menu <i class="fas fa-chevron-right"></i></a>
+                            <ul class="second-submenu">
+                                <li><a href="#">Submenu 1</a></li>
+                                <li><a href="#">Submenu 2</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Submenu 2</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="service.html">Services</a></li>
+                <li class="nav-item"><a href="blog.html">Blog</a></li>
+                <li class="nav-item"><a href="shop.html" class="active">Shop</a></li>
+                <li class="nav-item"><a href="faq.html">FAQ</a></li>
+                <li class="nav-item"><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="mobile-social">
+                <a href="#" class="social-item fb" data-name="FACEBOOK"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-item tw" data-name="X (TWITTER)"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-item inst" data-name="INSTAGRAM"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p class="copyright-text">© COPYRIGHT 2026</p>
+            <div class="nav-indicator"></div>
+        </nav>
+
+        <div class="header-tools">
+            <a href="service.html" class="help-btn">
+                <i class="fas fa-bicycle"></i> Help & Service
+            </a>
+            <div class="tool-icons-container">
+                <a href="wishlist.html"><div class="icon-wrap"><i class="far fa-heart"></i><span class="dot">0</span></div></a> 
+                <a href="cart.html"><div class="icon-wrap"><i class="fas fa-shopping-basket"></i><span class="dot">0</span></div></a> 
+            </div>
+        </div>
+    </div>
+    </header>
+<nav class="breadcrumb-nav">
+    <a href="index.html" class="bc-item home-link">
+        <i class="fas fa-home"></i>
+    </a>
+    <span class="bc-separator"><i class="fas fa-bicycle"></i></span>
+    <a href="blog.html"><span class="bc-item active-page">shop</span></a>
+    </nav>
+<h1 class="shop-main-title">Shop</h1>
+
+<div class="shop-controls-wrapper">
+    <div class="top-bar">
+        <div class="results-count">Showing Products</div>
+        <div class="right-controls">
+            <div class="grid-view-selector">
+                <div class="view-dot-wrapper" onclick="changeGrid(2,this)">⁝⁝</div>
+                <div class="view-dot-wrapper active" onclick="changeGrid(3,this)">⁝⁝⁝</div>
+                <div class="view-dot-wrapper" onclick="changeGrid(4,this)">⁝⁝⁝⁝</div>
+            </div>
+            <select>
+                <option>6 Products</option>
+                <option>16 Products</option>
+                <option>32Products</option>
+                <option>48 Products</option>
+                <option>64 Products</option>
+                <option>128 Products</option>
+            </select>
+            <select>
+                <option>Default Sorting</option>
+                <option>Popular</option>
+                <option>Top Rated</option>
+                <option>Highest DisCount</option>
+                <option>Lowest DisCount</option>
+                <option>Price high to low</option>
+                <option>Price low to high</option>
+                
+            </select>
+        </div>
+    </div>
+
+    <div class="categories-filter-row">
+
+    <button class="filter-btn active" data-filter="all">
+        <span class="icon"><i class="fa-solid fa-border-all"></i></span>
+        <span class="text">
+            All Products
+            <span class="count">9 items</span>
+        </span>
+    </button>
+
+    <button class="filter-btn" data-filter="cannondale">
+        <span class="icon"><i class="fa-solid fa-bicycle"></i></span>
+        <span class="text">
+            Cannondale
+            <span class="count">2 items</span>
+        </span>
+    </button>
+
+    <button class="filter-btn" data-filter="orbea">
+        <span class="icon"><i class="fa-solid fa-bicycle"></i></span>
+        <span class="text">
+            Orbea
+            <span class="count">2 items</span>
+        </span>
+    </button>
+
+    <button class="filter-btn" data-filter="premium">
+        <span class="icon"><i class="fa-solid fa-star"></i></span>
+        <span class="text">
+            Premium
+            <span class="count">1 item</span>
+        </span>
+    </button>
+
+    <button class="filter-btn" data-filter="mountain">
+        <span class="icon"><i class="fa-solid fa-mountain"></i></span>
+        <span class="text">
+            Mountain
+            <span class="count">1 item</span>
+        </span>
+    </button>
+
+    <button class="filter-btn" data-filter="electric">
+        <span class="icon"><i class="fa-solid fa-bolt"></i></span>
+        <span class="text">
+            Electric
+            <span class="count">1 item</span>
+        </span>
+    </button>
+
+    <button class="filter-btn" data-filter="road">
+        <span class="icon"><i class="fa-solid fa-road"></i></span>
+        <span class="text">
+            Road
+            <span class="count">1 item</span>
+        </span>
+    </button>
+
+    <button class="filter-btn" data-filter="sport">
+        <span class="icon"><i class="fa-solid fa-dumbbell"></i></span>
+        <span class="text">
+            Sport
+            <span class="count">1 item</span>
+        </span>
+    </button>
+
+</div>
+<div class="bk-grid-container" id="bikeGrid">
+
+    <!-- CARD 1 -->
+    <div class="bk-card" data-category="cannondale">
+        <div class="bk-card-main-bg">
+            <div class="bk-badges">
+                <span class="bk-badge-orange">Sale!</span>
+                <span class="bk-badge-dark">22%</span>
+            </div>
+            <img src="images/hero.png" class="bk-main-bike">
+            <div class="bk-strip" aria-label="Hot sale 22% off"></div>
+            <div class="bk-hover-actions">
+                <div class="bk-action-btn wishlist-btn">
+                    <i class="far fa-heart"></i>
+                </div>
+                <div class="bk-action-btn">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="bk-action-btn">
+                    <i class="fas fa-share-nodes"></i>
+                </div>
+            </div>
+            <div class="bk-info">
+                <a href="1.html">
+                    <h3 class="bk-title">Cannondale MTB</h3>
+                </a>
+                <p class="bk-brand">Cannondale</p>
+                <div class="bk-price-btn">
+                    <div class="bk-prices">
+                        <span class="old-price">$950</span>
+                        <span class="new-price">$799</span>
+                    </div>
+                    <button class="bk-add-cart">
+                        Add to cart 🛒
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- CARD 2 -->
+    <div class="bk-card" data-category="cannondale">
+        <div class="bk-card-main-bg">
+            <img src="images/hero2.png" class="bk-main-bike">
+            <div class="bk-hover-actions">
+                <div class="bk-action-btn wishlist-btn">
+                    <i class="far fa-heart"></i>
+                </div>
+                <div class="bk-action-btn">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="bk-action-btn">
+                    <i class="fas fa-share-nodes"></i>
+                </div>
+
+            </div>
+            <div class="bk-info">
+                <a href="#">
+                <h3 class="bk-title">Cannondale Urban</h3>
+                </a>
+                <p class="bk-brand">Cannondale</p>
+                <div class="bk-price-btn">
+                    <span class="bk-new-price">$1200</span>
+                    <button class="bk-add-cart">
+                        Add to cart 🛒
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="bk-card" data-category="orbea">
+        <div class="bk-card-main-bg">
+            <img src="images/1.png" class="bk-main-bike">
+            <div class="bk-hover-actions">
+                <div class="bk-action-btn wishlist-btn">
+                    <i class="far fa-heart"></i>
+                </div>
+                <div class="bk-action-btn">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="bk-action-btn">
+                    <i class="fas fa-share-nodes"></i>
+                </div>
+            </div>
+            <div class="bk-info">
+                <a href="#">
+                <h3 class="bk-title">Orbea Electric</h3>
+                </a>
+                <p class="bk-brand">Orbea</p>
+                <div class="bk-price-btn">
+                    <span class="bk-new-price">$2200</span>
+                    <button class="bk-add-cart">
+                        Add to cart 🛒
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- CARD 4 -->
+    <div class="bk-card" data-category="orbea">
+        <div class="bk-card-main-bg">
+            <img src="images/2.png" class="bk-main-bike">
+            <div class="bk-hover-actions">
+                <div class="bk-action-btn wishlist-btn">
+                    <i class="far fa-heart"></i>
+                </div>
+                <div class="bk-action-btn">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="bk-action-btn">
+                    <i class="fas fa-share-nodes"></i>
+                </div>
+            </div>
+            <div class="bk-info">
+              <a href="#">
+                <h3 class="bk-title">Orbea Road</h3>
+                </a>
+                <p class="bk-brand">Orbea</p>
+                <div class="bk-price-btn">
+                    <span class="bk-new-price">$1800</span>
+                    <button class="bk-add-cart">
+                        Add to cart 🛒
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- CARD 5 -->
+    <div class="bk-card" data-category="premium">
+        <div class="bk-card-main-bg">
+            <div class="bk-badges">
+                <span class="bk-badge-orange">Premium</span>
+            </div>
+            <img src="images/3.png" class="bk-main-bike">
+            <div class="bk-hover-actions">
+                <div class="bk-action-btn wishlist-btn">
+                    <i class="far fa-heart"></i>
+                </div>
+                <div class="bk-action-btn">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="bk-action-btn">
+                    <i class="fas fa-share-nodes"></i>
+                </div>
+            </div>
+            <div class="bk-info">
+                <a href="#">
+                <h3 class="bk-title">Carbon Bike</h3>
+                </a>
+                <p class="bk-brand">Premium</p>
+                <div class="bk-price-btn">
+                    <span class="bk-new-price">$3200</span>
+                    <button class="bk-add-cart">
+                        Add to cart 🛒
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- CARD 6 -->
+    <div class="bk-card" data-category="mountain">
+        <div class="bk-card-main-bg">
+            <img src="images/4.png" class="bk-main-bike">
+            <div class="bk-hover-actions">
+                <div class="bk-action-btn wishlist-btn">
+                    <i class="far fa-heart"></i>
+                </div>
+                <div class="bk-action-btn">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="bk-action-btn">
+                    <i class="fas fa-share-nodes"></i>
+                </div>
+            </div>
+            <div class="bk-info">
+               <a href="#">
+                <h3 class="bk-title">Mountain Pro</h3>
+                </a>
+                <p class="bk-brand">Mountain</p>
+                <div class="bk-price-btn">
+                    <span class="bk-new-price">$1400</span>
+                    <button class="bk-add-cart">
+                        Add to cart 🛒
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- CARD 7 -->
+    <div class="bk-card" data-category="electric">
+        <div class="bk-card-main-bg">
+            <img src="images/4.png" class="bk-main-bike">
+            <div class="bk-hover-actions">
+                <div class="bk-action-btn wishlist-btn">
+                    <i class="far fa-heart"></i>
+                </div>
+                <div class="bk-action-btn">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="bk-action-btn">
+                    <i class="fas fa-share-nodes"></i>
+                </div>
+            </div>
+            <div class="bk-info">
+                <h3 class="bk-title">Electric Bike X</h3>
+                <p class="bk-brand">Electric</p>
+                <div class="bk-price-btn">
+                    <span class="bk-new-price">$2600</span>
+                    <button class="bk-add-cart">
+                        Add to cart 🛒
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- CARD 8 -->
+    <div class="bk-card" data-category="road">
+        <div class="bk-card-main-bg">
+            <img src="images/5.png" class="bk-main-bike">
+            <div class="bk-hover-actions">
+                <div class="bk-action-btn wishlist-btn">
+                    <i class="far fa-heart"></i>
+                </div>
+                <div class="bk-action-btn">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="bk-action-btn">
+                    <i class="fas fa-share-nodes"></i>
+                </div>
+            </div>
+            <div class="bk-info">
+                <h3 class="bk-title">Road Speed</h3>
+                <p class="bk-brand">Road Bike</p>
+                <div class="bk-price-btn">
+                    <span class="bk-new-price">$1750</span>
+                    <button class="bk-add-cart">
+                        Add to cart 🛒
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- CARD 9 -->
+    <div class="bk-card" data-category="sport">
+        <div class="bk-card-main-bg">
+            <img src="images/8.png" class="bk-main-bike">
+            <div class="bk-hover-actions">
+                <div class="bk-action-btn wishlist-btn">
+                    <i class="far fa-heart"></i>
+                </div>
+                <div class="bk-action-btn">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="bk-action-btn">
+                    <i class="fas fa-share-nodes"></i>
+                </div>
+            </div>
+            <div class="bk-info">
+                <h3 class="bk-title">Sport Edition</h3>
+                <p class="bk-brand">Sport</p>
+                <div class="bk-price-btn">
+                    <span class="bk-new-price">$1950</span>
+                    <button class="bk-add-cart">
+                        Add to cart 🛒
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="site-footer">
+    <div class="footer-contact-bar">
+        <div class="contact-item">
+            <span class="top-label" style="color: #ff6600; display: block; font-size: 0.9rem; margin-bottom: 12px;">Pre-sale Questions</span>
+            <a href="mailto:help@xtrabicycle.com">help@xtrabicycle.com</a>
+        </div>
+        <div class="contact-item">
+            <span class="top-label" style="color: #ff6600; display: block; font-size: 0.9rem; margin-bottom: 12px;">Call Us</span>
+            <a href="tel:+180023456789">+1 800 2345 6789</a>
+        </div>
+        <div class="contact-item">
+            <span class="top-label" style="color: #ff6600; display: block; font-size: 0.9rem; margin-bottom: 12px;">Our Location</span>
+            <a href="#">#2354, Beverly Hills, LA</a>
+        </div>
+    </div>
+
+    <div class="footer-main-content">
+        
+        <div class="footer-column">
+            <h3 class="footer-title">Office</h3>
+            <ul class="office-info">
+                <li>
+                    <span class="icon-circle1"><i class="fas fa-map-marker-alt"></i></span>
+                    <span class="text">121 King Street, New York</span>
+                </li>
+                <li>
+                    <span class="icon-circle1"><i class="fas fa-phone-alt"></i></span>
+                    <span class="text">+1 (800) 333 44 55</span>
+                </li>
+                <li>
+                    <span class="icon-circle1"><i class="fas fa-envelope"></i></span>
+                    <span class="text">xtrabike@gmail.com</span>
+                </li>
+                <li>
+                    <span class="icon-circle1"><i class="fas fa-mobile-alt"></i></span>
+                    <span class="text">+1 (800) 333 99 88</span>
+                </li>
+                <li>
+                    <span class="icon-circle1"><i class="fab fa-twitter"></i></span>
+                    <span class="text">@xtra_bikeshop</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+    <h3 class="footer-title">News</h3>
+    <div class="news-list">
+        <div class="news-post">
+            <div class="image-wrapper">
+                <img src="images/article1.jfif" alt="bike">
+                <div class="overlay-link">
+                    <i class="fas fa-link"></i>
+                </div>
+            </div>
+            <div class="post-info">
+                <a href="#">Top 7 Must have Accessories for...</a>
+                <span>10 June 2024 <i class="far fa-comment"></i> 24</span>
+            </div>
+        </div>
+        
+        <div class="news-post">
+            <div class="image-wrapper">
+                <img src="images/articl2.jfif" alt="bike">
+                <div class="overlay-link">
+                    <i class="fas fa-link"></i>
+                </div>
+            </div>
+            <div class="post-info">
+                <a href="#">How to Choose the Perfect Bike for Yo...</a>
+                <span>10 June 2024 <i class="far fa-comment"></i> 18</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <div class="footer-column">
+            <h3 class="footer-title">Shortcuts</h3>
+            <div class="shortcuts-wrapper">
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> City Store</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> News</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Clients</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Consultation</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Consultation</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Consultation</a></li>
+                </ul>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Maps</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Careers</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Employees</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Teams</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Benefits</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Benefits</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-column">
+            <h3 class="footer-title">Working Hours</h3>
+            <p class="working-desc">Our support available to help you 24 hours a day, seven days a week.</p>
+            <div class="schedule">
+                <div class="day-row"><span>Monday to Friday</span><span>8AM - 4PM</span></div>
+                <div class="day-row"><span>Saturday</span><span>8AM - 1PM</span></div>
+                <div class="day-row"><span>Sunday</span><span class="orange-text">Closed</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>Copyright © 2026 Xtra Theme. All Rights Reserved.</p>
+        <div class="payment-icons">
+            <i class="fab fa-cc-visa"></i>
+            <i class="fab fa-cc-mastercard"></i>
+            <i class="fab fa-cc-paypal"></i>
+        </div>
+    </div>
+</footer>
+<div class="fixed-controls">
+    <button class="control-btn message-toggle" id="openForm">
+        <i class="fas fa-envelope"></i>
+    </button>
+    <button class="control-btn scroll-top" id="scrollTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+</div>
+<div class="contact-popup" id="contactPopup">
+    <div class="popup-content">
+        <form id="contactForm">
+            <div class="input-group">
+                <input type="text" placeholder="Your Name (*)" id="nameInput">
+                <span class="error-box"><i class="fas fa-times"></i></span>
+            </div>
+            <div class="input-group">
+                <input type="email" placeholder="Your Email (*)" id="emailInput">
+                <span class="error-box"><i class="fas fa-times"></i></span>
+            </div>
+            <textarea placeholder="Your Message"></textarea>
+            
+            <button type="submit" class="send-btn">Send Message</button>
+            
+            <p class="form-error-msg">One or more fields have an error. Please check and try again.</p>
+        </form>
+    </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+
+</script>
+</body>
+</html>

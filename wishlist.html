@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Wishlist</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: #0f0f0f;
+        color: white;
+        font-family: Arial;
+        padding: 40px;
+      }
+
+      h1 {
+        margin-bottom: 30px;
+        text-align: center;
+      }
+
+      .products {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+      }
+
+      .card {
+        background: #1a1a1a;
+        padding: 20px;
+        border-radius: 20px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .card img {
+        width: 100%;
+        border-radius: 12px;
+        margin-bottom: 15px;
+      }
+
+      .price {
+        color: #ff6a07;
+        margin-top: 10px;
+        font-weight: bold;
+      }
+
+      .delete-btn {
+        background: #fb6f11;
+        color: white;
+        border: none;
+        padding: 8px 15px;
+        border-radius: 8px;
+        margin-top: 15px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: background 0.3s ease;
+        width: 100%;
+      }
+
+      .delete-btn:hover {
+        background: #ff6a07;
+      }
+      .empty-container {
+        text-align: center;
+        grid-column: 1 / -1;
+        padding: 60px 20px;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .empty-container h2 {
+        font-size: 32px;
+        margin-bottom: 15px;
+        font-weight: bold;
+      }
+
+      .empty-container p {
+        color: #8c8c8c;
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 30px;
+      }
+
+      .shop-btn {
+        display: inline-block;
+        background: #ff5c00;
+        color: white;
+        text-decoration: none;
+        padding: 14px 35px;
+        border-radius: 50px;
+        font-weight: bold;
+        font-size: 16px;
+        transition: background 0.3s ease;
+      }
+
+      .shop-btn:hover {
+        background: #e05200;
+      }
+
+      .breadcrumb-nav {
+        display: inline-flex;
+        align-items: center;
+        background-color: #111;
+        padding: 8px 20px;
+        border-radius: 30px;
+        position: absolute;
+        top: 70px;
+        left: 70px;
+        z-index: 100;
+        border: 1px solid #222;
+      }
+      .bc-item {
+        color: #fff;
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        transition: color 0.3s ease;
+      }
+      a {
+        text-decoration: none;
+      }
+      .bc-separator {
+        color: #555;
+        margin: 0 12px;
+        font-size: 0.8rem;
+      }
+
+      .home-link:hover {
+        color: #ff6a07;
+      }
+
+      .active-page {
+        color: #888;
+        cursor: default;
+      }
+      .active-page:hover {
+        color: #ff6a07;
+      }
+      @media (max-width: 768px) {
+        .breadcrumb-nav {
+          position: static;
+          margin: 40px auto 20px auto;
+          display: flex;
+          width: fit-content;
+        }
+      }
+      .site-footer {
+        background-color: #0c0c0c;
+        color: #fff;
+        padding: 0 5%;
+        font-family: "Arial", sans-serif;
+      }
+      .footer-contact-bar {
+        background-color: #1a1a1a;
+        display: flex;
+        justify-content: space-around;
+        padding: 45px 0;
+        border-bottom: 1px solid #222;
+        margin-bottom: 60px;
+        text-align: center;
+      }
+
+      .contact-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .top-label {
+        color: #ff6600;
+        display: block;
+        font-size: 0.9rem;
+        margin-bottom: 12px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 600;
+      }
+
+      .contact-item a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 1.5rem;
+        font-weight: bold;
+        transition: all 0.3s ease;
+      }
+      .contact-item a:hover {
+        color: #ff6600;
+        transform: translateY(-2px);
+      }
+      .footer-main-content {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 40px;
+        padding: 80px 0;
+      }
+      .footer-title {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+        position: relative;
+        padding-bottom: 10px;
+      }
+
+      .footer-title::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 30px;
+        height: 2px;
+        background-color: #ff6600;
+      }
+      .office-info {
+        list-style: none;
+        padding: 0;
+      }
+      .office-info li {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      .icon-circle1 {
+        width: 24px;
+        height: 24px;
+        background-color: #ff5906;
+        color: #fff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 12px;
+        transition: all 0.3s ease;
+        font-size: 11px;
+        flex-shrink: 0;
+      }
+      .office-info li:hover .icon-circle1 {
+        background-color: #fff !important;
+        color: #ff5906 !important;
+        box-shadow: 0 0 0 1px #ff5906;
+      }
+      .office-info li:hover .text {
+        color: #ff5906;
+      }
+      .news-post {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 20px;
+      }
+      .news-post img {
+        width: 70px;
+        height: 70px;
+        border-radius: 8px;
+        object-fit: cover;
+      }
+      .post-info a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 0.9rem;
+        display: block;
+        margin-bottom: 5px;
+      }
+      .post-info span {
+        color: #666;
+        font-size: 0.8rem;
+      }
+      .image-wrapper {
+        position: relative;
+        width: 70px;
+        height: 70px;
+        border-radius: 8px;
+        overflow: hidden;
+        cursor: pointer;
+      }
+      .image-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: 0.4s ease;
+      }
+      .overlay-link {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.322);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 2;
+      }
+      .overlay-link i {
+        color: #fff !important;
+        font-size: 1.2rem;
+        transform: scale(0.5);
+        transition: 0.3s ease;
+      }
+      .image-wrapper:hover .overlay-link {
+        opacity: 1;
+        visibility: visible;
+      }
+      .image-wrapper:hover .overlay-link i {
+        transform: scale(1);
+      }
+
+      .image-wrapper:hover img {
+        filter: blur(2px);
+        transform: scale(1.1);
+      }
+
+      .shortcuts-wrapper {
+        display: flex;
+        gap: 20px;
+      }
+      .footer-links {
+        list-style: none;
+        padding: 0;
+      }
+      .footer-links li {
+        margin-bottom: 15px;
+      }
+      .footer-links a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: 0.3s;
+      }
+      .footer-links a i {
+        color: #ff6600;
+        margin-right: 10px;
+        font-size: 0.7rem;
+      }
+      .footer-links a:hover {
+        color: #ff6600;
+        padding-left: 5px;
+      }
+      .working-desc {
+        color: #888;
+        font-size: 0.9rem;
+        margin-bottom: 25px;
+        line-height: 1.6;
+      }
+      .day-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 12px 0;
+        border-bottom: 1px solid #222;
+        font-size: 0.9rem;
+      }
+      .orange-text {
+        color: #ff6600;
+      }
+      .footer-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 30px 0;
+        border-top: 1px solid #222;
+        color: #555;
+        font-size: 0.9rem;
+      }
+      .payment-icons i {
+        font-size: 1.5rem;
+        margin-left: 15px;
+        color: #7d7979;
+      }
+      .fixed-controls {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        display: flex;
+        gap: 15px;
+        z-index: 1000;
+      }
+      .control-btn {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: none;
+        background-color: #ff6600;
+        color: white;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .control-btn:hover {
+        background-color: white;
+        color: #ff6600;
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(255, 102, 0, 0.3);
+      }
+      .contact-popup {
+        position: fixed;
+        bottom: 100px;
+        right: 30px;
+        width: 320px;
+        background: #111;
+        border-radius: 20px;
+        padding: 25px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        display: none;
+        z-index: 999;
+      }
+      .contact-popup.active {
+        display: block;
+        animation: fadeInUp 0.3s ease;
+      }
+
+      .input-group {
+        position: relative;
+        margin-bottom: 15px;
+      }
+      .contact-popup input,
+      .contact-popup textarea {
+        width: 100%;
+        background: #1a1a1a;
+        border: 1px solid #333;
+        padding: 12px;
+        border-radius: 10px;
+        color: white;
+        outline: none;
+      }
+      .error-box {
+        position: absolute;
+        left: -45px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: #ff0000;
+        color: white;
+        width: 30px;
+        height: 30px;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+      }
+      .error-box::after {
+        content: "";
+        position: absolute;
+        right: -5px;
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        border-left: 5px solid #ff0000;
+      }
+      .has-error .error-box {
+        display: flex;
+      }
+      .has-error .form-error-msg {
+        display: block;
+      }
+      .form-error-msg {
+        color: #ff0000;
+        font-size: 0.8rem;
+        margin-top: 15px;
+        display: none;
+      }
+
+      .send-btn {
+        width: 100%;
+        background: #ff6600;
+        border: none;
+        padding: 12px;
+        border-radius: 30px;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @media (max-width: 992px) {
+        .footer-contact-bar {
+          flex-direction: column;
+          gap: 40px;
+          padding: 40px 20px;
+        }
+        .contact-item a {
+          font-size: 1.2rem;
+        }
+        .footer-main-content {
+          grid-template-columns: 1fr;
+          gap: 50px;
+          padding: 50px 0;
+          text-align: center;
+        }
+        .footer-title::after {
+          left: 50%;
+          transform: translateX(-50%);
+        }
+        .office-info li {
+          justify-content: center;
+        }
+        .news-post {
+          flex-direction: column;
+          align-items: center;
+        }
+        .post-info {
+          text-align: center;
+        }
+        .shortcuts-wrapper {
+          flex-direction: column;
+          align-items: center;
+          gap: 0;
+        }
+        .footer-bottom {
+          flex-direction: column;
+          gap: 20px;
+          text-align: center;
+        }
+        .payment-icons {
+          margin-top: 10px;
+        }
+        .payment-icons i {
+          margin: 0 10px;
+        }
+      }
+      @media (max-width: 480px) {
+        .contact-item a {
+          font-size: 1rem;
+        }
+
+        .site-footer {
+          padding: 0 20px;
+        }
+      }
+      /* ================= EMPTY STATE ================= */
+      .empty-msg {
+        text-align: center;
+        padding: 50px;
+        color: #666;
+      }
+
+      @media (max-width: 600px) {
+        .cart-card {
+          flex-direction: column;
+          text-align: center;
+        }
+        .cart-summary {
+          justify-content: center;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="breadcrumb-nav">
+      <a href="index.html" class="bc-item home-link">
+        <i class="fas fa-home"></i>
+      </a>
+      <span class="bc-separator"><i class="fas fa-bicycle"></i></span>
+      <a href="wishlist.html"
+        ><span class="bc-item active-page">Wishlist</span></a
+      >
+    </nav>
+    <div class="products" id="products"></div>
+
+    <footer class="site-footer">
+      <div class="footer-contact-bar">
+        <div class="contact-item">
+          <span
+            class="top-label"
+            style="
+              color: #ff6600;
+              display: block;
+              font-size: 0.9rem;
+              margin-bottom: 12px;
+            "
+            >Pre-sale Questions</span
+          >
+          <a href="mailto:help@xtrabicycle.com">help@xtrabicycle.com</a>
+        </div>
+        <div class="contact-item">
+          <span
+            class="top-label"
+            style="
+              color: #ff6600;
+              display: block;
+              font-size: 0.9rem;
+              margin-bottom: 12px;
+            "
+            >Call Us</span
+          >
+          <a href="tel:+180023456789">+1 800 2345 6789</a>
+        </div>
+        <div class="contact-item">
+          <span
+            class="top-label"
+            style="
+              color: #ff6600;
+              display: block;
+              font-size: 0.9rem;
+              margin-bottom: 12px;
+            "
+            >Our Location</span
+          >
+          <a href="#">#2354, Beverly Hills, LA</a>
+        </div>
+      </div>
+
+      <div class="footer-main-content">
+        <div class="footer-column">
+          <h3 class="footer-title">Office</h3>
+          <ul class="office-info">
+            <li>
+              <span class="icon-circle1"
+                ><i class="fas fa-map-marker-alt"></i
+              ></span>
+              <span class="text">121 King Street, New York</span>
+            </li>
+            <li>
+              <span class="icon-circle1"><i class="fas fa-phone-alt"></i></span>
+              <span class="text">+1 (800) 333 44 55</span>
+            </li>
+            <li>
+              <span class="icon-circle1"><i class="fas fa-envelope"></i></span>
+              <span class="text">xtrabike@gmail.com</span>
+            </li>
+            <li>
+              <span class="icon-circle1"
+                ><i class="fas fa-mobile-alt"></i
+              ></span>
+              <span class="text">+1 (800) 333 99 88</span>
+            </li>
+            <li>
+              <span class="icon-circle1"><i class="fab fa-twitter"></i></span>
+              <span class="text">@xtra_bikeshop</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3 class="footer-title">News</h3>
+          <div class="news-list">
+            <div class="news-post">
+              <div class="image-wrapper">
+                <a href="post-detail.html"
+                  ><img src="images/article1.jfif" alt="bike" />
+                  <div class="overlay-link">
+                    <i class="fas fa-link"></i></div
+                ></a>
+              </div>
+              <div class="post-info">
+                <a href="post-detail.html"
+                  >Top 7 Must have Accessories for...</a
+                >
+                <span>10 June 2024 <i class="far fa-comment"></i> 24</span>
+              </div>
+            </div>
+
+            <div class="news-post">
+              <div class="image-wrapper">
+                <a href="post-detail.html"
+                  ><img src="images/articl2.jfif" alt="bike"
+                /></a>
+                <div class="overlay-link">
+                  <i class="fas fa-link"></i>
+                </div>
+              </div>
+              <div class="post-info">
+                <a href="post-detail1.html"
+                  >How to Choose the Perfect Bike for Yo...</a
+                >
+                <span>10 June 2024 <i class="far fa-comment"></i> 18</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h3 class="footer-title">Shortcuts</h3>
+          <div class="shortcuts-wrapper">
+            <ul class="footer-links">
+              <li>
+                <a href="#"><i class="fas fa-chevron-right"></i> Home</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-chevron-right"></i> City Store</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-chevron-right"></i> News</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-chevron-right"></i> Clients</a>
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-chevron-right"></i> Consultation</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-chevron-right"></i> Consultation</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-chevron-right"></i> Consultation</a
+                >
+              </li>
+            </ul>
+            <ul class="footer-links">
+              <li>
+                <a href="#"><i class="fas fa-chevron-right"></i> Maps</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-chevron-right"></i> Careers</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-chevron-right"></i> Employees</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-chevron-right"></i> Teams</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-chevron-right"></i> Benefits</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-chevron-right"></i> Benefits</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h3 class="footer-title">Working Hours</h3>
+          <p class="working-desc">
+            Our support available to help you 24 hours a day, seven days a week.
+          </p>
+          <div class="schedule">
+            <div class="day-row">
+              <span>Monday to Friday</span><span>8AM - 4PM</span>
+            </div>
+            <div class="day-row">
+              <span>Saturday</span><span>8AM - 1PM</span>
+            </div>
+            <div class="day-row">
+              <span>Sunday</span><span class="orange-text">Closed</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>Copyright © 2026 Xtra Theme. All Rights Reserved.</p>
+        <div class="payment-icons">
+          <i class="fab fa-cc-visa"></i>
+          <i class="fab fa-cc-mastercard"></i>
+          <i class="fab fa-cc-paypal"></i>
+        </div>
+      </div>
+    </footer>
+
+    <div class="fixed-controls">
+      <button class="control-btn message-toggle" id="openForm">
+        <i class="fas fa-envelope"></i>
+      </button>
+      <button class="control-btn scroll-top" id="scrollTop">
+        <i class="fas fa-chevron-up"></i>
+      </button>
+    </div>
+    <div class="contact-popup" id="contactPopup">
+      <div class="popup-content">
+        <form id="contactForm">
+          <div class="input-group">
+            <input type="text" placeholder="Your Name (*)" id="nameInput" />
+            <span class="error-box"><i class="fas fa-times"></i></span>
+          </div>
+          <div class="input-group">
+            <input type="email" placeholder="Your Email (*)" id="emailInput" />
+            <span class="error-box"><i class="fas fa-times"></i></span>
+          </div>
+          <textarea placeholder="Your Message"></textarea>
+
+          <button type="submit" class="send-btn">Send Message</button>
+
+          <p class="form-error-msg">
+            One or more fields have an error. Please check and try again.
+          </p>
+        </form>
+      </div>
+    </div>
+    <script>
+      const productsContainer = document.getElementById("products");
+      let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+      function displayWishlist() {
+        productsContainer.innerHTML = "";
+        if (wishlist.length === 0) {
+          productsContainer.innerHTML = `
+        <div class="empty-container">
+            <h2>Your wishlist is currently empty</h2>
+            <p>You don't have any products in the list yet. You will find a lot of interesting products on our "Shop" page</p>
+            <a href="shop.html" class="shop-btn">Return to shop</a>
+        </div>
+        `;
+          return;
+        }
+        productsContainer.insertAdjacentHTML(
+          "beforebegin",
+          '<h1 id="page-title">Wishlist Products</h1>'
+        );
+        const existingTitle = document.getElementById("page-title");
+        if (!existingTitle) {
+          document.body.insertAdjacentHTML(
+            "afterbegin",
+            '<h1 id="page-title">Wishlist Products</h1>'
+          );
+        }
+
+        wishlist.forEach((product, index) => {
+          productsContainer.innerHTML += `
+        <div class="card">
+            <div>
+                <img src="${product.image}" alt="${product.title}">
+                <h2>${product.title}</h2>
+                <div class="price">${product.price}</div>
+            </div>
+            <button class="delete-btn" onclick="removeFromWishlist(${index})">Remove</button>
+        </div>
+        `;
+        });
+      }
+
+      function removeFromWishlist(index) {
+        wishlist.splice(index, 1);
+        localStorage.setItem("wishlist", JSON.stringify(wishlist));
+        const existingTitle = document.getElementById("page-title");
+        if (existingTitle && wishlist.length === 0) {
+          existingTitle.remove();
+        }
+        displayWishlist();
+      }
+      displayWishlist();
+      const openFormBtn = document.getElementById("openForm");
+      const contactPopup = document.getElementById("contactPopup");
+      const contactForm = document.getElementById("contactForm");
+
+      // أ) كود فتح وإغلاق النافذة من الزر العائم الداكن
+      if (openFormBtn && contactPopup) {
+        openFormBtn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          contactPopup.classList.toggle("active");
+        });
+
+        // إغلاق النافذة عند الضغط خارجها
+        document.addEventListener("click", (e) => {
+          if (
+            !contactPopup.contains(e.target) &&
+            !openFormBtn.contains(e.target)
+          ) {
+            contactPopup.classList.remove("active");
+          }
+        });
+      }
+
+      // ب) كود فحص المدخلات وإرسال النموذج
+      if (contactForm) {
+        contactForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const nameInput = document.getElementById("nameInput");
+          const emailInput = document.getElementById("emailInput");
+
+          const nameGroup = nameInput
+            ? nameInput.closest(".input-group")
+            : null;
+          const emailGroup = emailInput
+            ? emailInput.closest(".input-group")
+            : null;
+
+          // إزالة رسالة النجاح القديمة إن وجدت
+          const oldSuccessMsg = contactForm.querySelector(".form-success-msg");
+          if (oldSuccessMsg) {
+            oldSuccessMsg.remove();
+          }
+
+          let hasError = false;
+
+          // فحص حقل الاسم
+          if (nameInput && nameInput.value.trim() === "") {
+            if (nameGroup) nameGroup.classList.add("has-error");
+            hasError = true;
+          } else {
+            if (nameGroup) nameGroup.classList.remove("has-error");
+          }
+
+          // فحص حقل الإيميل
+          if (emailInput && emailInput.value.trim() === "") {
+            if (emailGroup) emailGroup.classList.add("has-error");
+            hasError = true;
+          } else {
+            if (emailGroup) emailGroup.classList.remove("has-error");
+          }
+
+          // التعامل مع النتيجة (خطأ أو نجاح)
+          if (hasError) {
+            contactForm.classList.add("has-error");
+          } else {
+            contactForm.classList.remove("has-error");
+
+            // إنشاء وإظهار رسالة النجاح
+            const successMsg = document.createElement("p");
+            successMsg.className = "form-success-msg";
+            successMsg.textContent = "Demo site – form submission is disabled.";
+
+            successMsg.style.backgroundColor = "#d4edda";
+            successMsg.style.color = "#155724";
+            successMsg.style.padding = "12px";
+            successMsg.style.borderRadius = "10px";
+            successMsg.style.marginTop = "15px";
+            successMsg.style.fontSize = "0.85rem";
+            successMsg.style.textAlign = "left";
+            successMsg.style.display = "block";
+
+            contactForm.appendChild(successMsg);
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog-Bike shope</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="dark-theme">
+    <header class="main-header">
+      <div class="container">
+        <div class="logo">
+          <img src="images/logo.png" alt="" />
+        </div>
+        <div class="mobile-menu-btn" onclick="toggleMobileMenu()">
+          <i class="fas fa-bars"></i>
+        </div>
+        <nav class="desktop-nav">
+          <ul class="nav-links">
+            <li class="nav-item">
+<a href="index.html">Home</a>
+            </li>
+            <li class="nav-item has-dropdown parent-link">
+              <a href="about.html">About <i class="fas fa-chevron-down"></i></a>
+              <ul class="submenu">
+                <li><a href="#">Submenu 1</a></li>
+                <li class="has-second-dropdown">
+                  <a href="#"
+                    >Dropdown menu <i class="fas fa-chevron-right"></i
+                  ></a>
+                  <ul class="second-submenu">
+                    <li><a href="#">Submenu 1</a></li>
+                    <li><a href="#">Submenu 2</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">Submenu 2</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a href="service.html">Services</a></li>
+                <li class="nav-item"><a href="blog.html" class="active">Blog</a></li>
+            <li class="nav-item"><a href="shop.html">Shop</a></li>
+            <li class="nav-item"><a href="faq.html">FAQ</a></li>
+            <li class="nav-item"><a href="contact.html">Contact</a></li>
+          </ul>
+          <div class="mobile-social">
+            <a href="#" class="social-item fb" data-name="FACEBOOK"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" class="social-item tw" data-name="X (TWITTER)"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a href="#" class="social-item inst" data-name="INSTAGRAM"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </div>
+          <p class="copyright-text">© COPYRIGHT 2026</p>
+          <div class="nav-indicator"></div>
+        </nav>
+
+        <div class="header-tools">
+          <a href="service.html" class="help-btn">
+            <i class="fas fa-bicycle"></i> Help & Service
+          </a>
+          <div class="tool-icons-container">
+            <a href="wishlist.html"
+              ><div class="icon-wrap">
+                <i class="far fa-heart"></i><span class="dot">0</span>
+              </div></a
+            >
+            <a href="cart.html"
+              ><div class="icon-wrap">
+                <i class="fas fa-shopping-basket"></i><span class="dot">0</span>
+              </div></a
+            >
+          </div>
+        </div>
+      </div>
+    </header>
+    <nav class="breadcrumb-nav">
+      <a href="index.html" class="bc-item home-link">
+        <i class="fas fa-home"></i>
+      </a>
+      <span class="bc-separator"><i class="fas fa-bicycle"></i></span>
+      <a href="blog.html"><span class="bc-item active-page">Blog</span></a>
+    </nav>
+
+    <main class="blog-container">
+      <section class="articles-section">
+        <!--المقال  الاول يا شهودة-->
+        <div class="article-card">
+          <a href="post-detail.html">
+            <div class="article-image">
+              <img src="images/article1.jpg" alt="Post 1" />
+            </div>
+          </a>
+          <div class="article-content">
+            <h2>Top 7 Must have Accessories for Every Cyclist</h2>
+            <div class="meta">
+              <img src="images/coment1.jpg" class="author-img" /><span
+                >Tutorial - 10 June 2024</span
+              >
+            </div>
+            <p>
+              Discover the essential gear that every cyclist should have to
+              ensure safety and comfort...
+            </p>
+            <a href="post-detail.html" target="_blank" class="read-more-btn"
+              ><i class="fas fa-chevron-right"></i> Read More</a
+            >
+          </div>
+        </div>
+        <!--المقال  الثاني يا شهودة-->
+        <div class="article-card">
+          <a href="post-detail1.html"
+            ><div class="article-image">
+              <img src="images/article1.jpg" alt="Post 2" /></div
+          ></a>
+          <div class="article-content">
+            <h2>How to Choose the Perfect Bike for Your Lifestyle</h2>
+            <div class="meta">
+              <img src="images/coment2.jpg" class="author-img" /><span
+                >Interview - 10 June 2024</span
+              >
+            </div>
+            <p>
+              Road bike, mountain bike, or hybrid? We help you navigate the
+              options...
+            </p>
+            <a href="post-detail1.html" target="_blank" class="read-more-btn"
+              ><i class="fas fa-chevron-right"></i> Read More</a
+            >
+          </div>
+        </div>
+        <!--المقال  الثالث يا شهودة-->
+
+        <div class="article-card">
+          <a href="post-detail2.html"
+            ><div class="article-image">
+              <img src="images/article1.jpg" alt="Post 3" /></div
+          ></a>
+          <div class="article-content">
+            <h2>5 Local Cycling Trails You Shouldn’t Miss</h2>
+            <div class="meta">
+              <img src="images/jack.jpeg" class="author-img" /><span
+                >Uncategorized - 10 June 2024</span
+              >
+            </div>
+            <p>
+              Explore the most scenic and rewarding cycling trails near you...
+            </p>
+            <a href="post-detail2.html" target="_blank" class="read-more-btn"
+              ><i class="fas fa-chevron-right"></i> Read More</a
+            >
+          </div>
+        </div>
+        <!--المقال  الرابع يا شهودة-->
+        <div class="article-card">
+          <a href="post-detail3.html"
+            ><div class="article-image">
+              <img src="images/article1.jpg" alt="Post 4" /></div
+          ></a>
+          <div class="article-content">
+            <h2>Electric Bikes Explained: Are They Worth It?</h2>
+            <div class="meta">
+              <img src="images/coment1.jpg" class="author-img" /><span
+                >News - 10 June 2024</span
+              >
+            </div>
+            <p>
+              The rise of e-bikes is changing the landscape. Is an electric
+              boost right for you?
+            </p>
+            <a href="post-detail3.html" target="_blank" class="read-more-btn"
+              ><i class="fas fa-chevron-right"></i> Read More</a
+            >
+          </div>
+        </div>
+        <div class="pagination">
+          <a href="blog.html" class="page-num active">1</a>
+          <a href="page2.html" class="page-num">2</a>
+          <a href="page2.html" class="page-num"
+            ><i class="fas fa-angles-right"></i
+          ></a>
+        </div>
+      </section>
+      <aside class="sidebar">
+        <div class="widget">
+          <h3>Search in Blog</h3>
+          <div class="search-box">
+            <input type="text" placeholder="search.." /><button>Search</button>
+          </div>
+        </div>
+        <div class="widget">
+          <h3>Tags Cloud</h3>
+          <div class="tags-container">
+            <span>article</span><span>developer</span><span>it</span
+            ><span>learn</span><span>photography</span><span>post</span
+            ><span>website</span>
+          </div>
+        </div>
+        <div class="widget">
+          <h3>Ads</h3>
+          <a href="https://codevz.com/">
+            <div class="ad-placeholder">
+              <img
+                src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=300"
+                alt="Ad"
+              />
+              <span>Advertisement!</span>
+            </div>
+          </a>
+        </div>
+      </aside>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-contact-bar">
+        <div class="contact-item">
+          <span
+            class="top-label"
+            style="
+              color: #ff6600;
+              display: block;
+              font-size: 0.9rem;
+              margin-bottom: 12px;
+            "
+            >Pre-sale Questions</span
+          >
+          <a href="mailto:help@xtrabicycle.com">help@xtrabicycle.com</a>
+        </div>
+        <div class="contact-item">
+          <span
+            class="top-label"
+            style="
+              color: #ff6600;
+              display: block;
+              font-size: 0.9rem;
+              margin-bottom: 12px;
+            "
+            >Call Us</span
+          >
+          <a href="tel:+180023456789">+1 800 2345 6789</a>
+        </div>
+        <div class="contact-item">
+          <span
+            class="top-label"
+            style="
+              color: #ff6600;
+              display: block;
+              font-size: 0.9rem;
+              margin-bottom: 12px;
+            "
+            >Our Location</span
+          >
+          <a href="#">#2354, Beverly Hills, LA</a>
+        </div>
+      </div>
+
+      <div class="footer-main-content">
+        <div class="footer-column">
+          <h3 class="footer-title">Office</h3>
+          <ul class="office-info">
+            <li>
+              <span class="icon-circle1"
+                ><i class="fas fa-map-marker-alt"></i
+              ></span>
+              <span class="text">121 King Street, New York</span>
+            </li>
+            <li>
+              <span class="icon-circle1"><i class="fas fa-phone-alt"></i></span>
+              <span class="text">+1 (800) 333 44 55</span>
+            </li>
+            <li>
+              <span class="icon-circle1"><i class="fas fa-envelope"></i></span>
+              <span class="text">xtrabike@gmail.com</span>
+            </li>
+            <li>
+              <span class="icon-circle1"
+                ><i class="fas fa-mobile-alt"></i
+              ></span>
+              <span class="text">+1 (800) 333 99 88</span>
+            </li>
+            <li>
+              <span class="icon-circle1"><i class="fab fa-twitter"></i></span>
+              <span class="text">@xtra_bikeshop</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3 class="footer-title">News</h3>
+          <div class="news-list">
+            <div class="news-post">
+              <div class="image-wrapper">
+                <img src="images/article1.jfif" alt="bike" />
+                <div class="overlay-link">
+                  <i class="fas fa-link"></i>
+                </div>
+              </div>
+              <div class="post-info">
+                <a href="#">Top 7 Must have Accessories for...</a>
+                <span>10 June 2024 <i class="far fa-comment"></i> 24</span>
+              </div>
+            </div>
+
+            <div class="news-post">
+              <div class="image-wrapper">
+                <img src="images/articl2.jfif" alt="bike" />
+                <div class="overlay-link">
+                  <i class="fas fa-link"></i>
+                </div>
+              </div>
+              <div class="post-info">
+                <a href="#">How to Choose the Perfect Bike for Yo...</a>
+                <span>10 June 2024 <i class="far fa-comment"></i> 18</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h3 class="footer-title">Shortcuts</h3>
+          <div class="shortcuts-wrapper">
+            <ul class="footer-links">
+              <li>
+                <a href="#"><i class="fas fa-chevron-right"></i> Home</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-chevron-right"></i> City Store</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-chevron-right"></i> News</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-chevron-right"></i> Clients</a>
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-chevron-right"></i> Consultation</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-chevron-right"></i> Consultation</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-chevron-right"></i> Consultation</a
+                >
+              </li>
+            </ul>
+            <ul class="footer-links">
+              <li>
+                <a href="#"><i class="fas fa-chevron-right"></i> Maps</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-chevron-right"></i> Careers</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-chevron-right"></i> Employees</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-chevron-right"></i> Teams</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-chevron-right"></i> Benefits</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-chevron-right"></i> Benefits</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h3 class="footer-title">Working Hours</h3>
+          <p class="working-desc">
+            Our support available to help you 24 hours a day, seven days a week.
+          </p>
+          <div class="schedule">
+            <div class="day-row">
+              <span>Monday to Friday</span><span>8AM - 4PM</span>
+            </div>
+            <div class="day-row">
+              <span>Saturday</span><span>8AM - 1PM</span>
+            </div>
+            <div class="day-row">
+              <span>Sunday</span><span class="orange-text">Closed</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>Copyright © 2026 Xtra Theme. All Rights Reserved.</p>
+        <div class="payment-icons">
+          <i class="fab fa-cc-visa"></i>
+          <i class="fab fa-cc-mastercard"></i>
+          <i class="fab fa-cc-paypal"></i>
+        </div>
+      </div>
+    </footer>
+    <div class="fixed-controls">
+      <button class="control-btn message-toggle" id="openForm">
+        <i class="fas fa-envelope"></i>
+      </button>
+      <button class="control-btn scroll-top" id="scrollTop">
+        <i class="fas fa-chevron-up"></i>
+      </button>
+    </div>
+    <div class="contact-popup" id="contactPopup">
+      <div class="popup-content">
+        <form id="contactForm">
+          <div class="input-group">
+            <input type="text" placeholder="Your Name (*)" id="nameInput" />
+            <span class="error-box"><i class="fas fa-times"></i></span>
+          </div>
+          <div class="input-group">
+            <input type="email" placeholder="Your Email (*)" id="emailInput" />
+            <span class="error-box"><i class="fas fa-times"></i></span>
+          </div>
+          <textarea placeholder="Your Message"></textarea>
+
+          <button type="submit" class="send-btn">Send Message</button>
+
+          <p class="form-error-msg">
+            One or more fields have an error. Please check and try again.
+          </p>
+        </form>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

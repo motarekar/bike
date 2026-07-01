@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Cart - Bike Shop</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: sans-serif;
+      }
+
+      body {
+        background: #0d0d0d;
+        color: white;
+        padding: 40px 20px;
+      }
+
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+        border-left: 5px solid #ff6600;
+        padding-left: 15px;
+      }
+
+      /* ================= PRODUCTS GRID ================= */
+      .products-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+      }
+
+      .cart-card {
+        background: #1a1a1a;
+        border-radius: 20px;
+        padding: 15px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        position: relative;
+        transition: 0.3s;
+        border: 1px solid #333;
+      }
+
+      .cart-card:hover {
+        border-color: #ff6600;
+      }
+
+      .cart-card img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 12px;
+      }
+
+      .cart-info {
+        flex-grow: 1;
+      }
+
+      .cart-info h2 {
+        font-size: 1.1rem;
+        margin-bottom: 5px;
+      }
+
+      .cart-info .price {
+        color: #ff6600;
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+
+      /* ================= REMOVE BTN ================= */
+      .remove-btn {
+        background: rgba(255, 0, 0, 0.1);
+        color: #ff4444;
+        border: none;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: 0.3s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .remove-btn:hover {
+        background: #ff4444;
+        color: white;
+      }
+
+      /* ================= FOOTER & CHECKOUT ================= */
+      .cart-summary {
+        margin-top: 40px;
+        background: #1a1a1a;
+        padding: 25px;
+        border-radius: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        border-top: 2px solid #ff6600;
+      }
+
+      .total-box h3 {
+        color: #888;
+        font-weight: normal;
+        font-size: 1rem;
+      }
+
+      .total-box span {
+        font-size: 2rem;
+        color: white;
+        font-weight: bold;
+      }
+
+      .checkout-btn {
+        background: #ff6600;
+        color: white;
+        padding: 15px 40px;
+        border-radius: 35px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.1rem;
+        transition: 0.3s;
+        display: inline-block;
+        box-shadow: 0 10px 20px rgba(255, 102, 0, 0.2);
+      }
+
+      .checkout-btn:hover {
+        background: #e65c00;
+        transform: translateY(-3px);
+        box-shadow: 0 15px 25px rgba(255, 102, 0, 0.3);
+      }
+      .site-footer {
+        background-color: #0c0c0c;
+        color: #fff;
+        padding: 0 5%;
+        font-family: "Arial", sans-serif;
+      }
+      .footer-contact-bar {
+        background-color: #1a1a1a;
+        display: flex;
+        justify-content: space-around;
+        padding: 45px 0;
+        border-bottom: 1px solid #222;
+        margin-bottom: 60px;
+        text-align: center;
+      }
+
+      .contact-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .top-label {
+        color: #ff6600;
+        display: block;
+        font-size: 0.9rem;
+        margin-bottom: 12px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 600;
+      }
+
+      .contact-item a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 1.5rem;
+        font-weight: bold;
+        transition: all 0.3s ease;
+      }
+      .contact-item a:hover {
+        color: #ff6600;
+        transform: translateY(-2px);
+      }
+      .footer-main-content {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 40px;
+        padding: 80px 0;
+      }
+      .footer-title {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+        position: relative;
+        padding-bottom: 10px;
+      }
+
+      .footer-title::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 30px;
+        height: 2px;
+        background-color: #ff6600;
+      }
+      .office-info {
+        list-style: none;
+        padding: 0;
+      }
+      .office-info li {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      .icon-circle1 {
+        width: 24px;
+        height: 24px;
+        background-color: #ff5906;
+        color: #fff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 12px;
+        transition: all 0.3s ease;
+        font-size: 11px;
+        flex-shrink: 0;
+      }
+      .office-info li:hover .icon-circle1 {
+        background-color: #fff !important;
+        color: #ff5906 !important;
+        box-shadow: 0 0 0 1px #ff5906;
+      }
+      .office-info li:hover .text {
+        color: #ff5906;
+      }
+      .news-post {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 20px;
+      }
+      .news-post img {
+        width: 70px;
+        height: 70px;
+        border-radius: 8px;
+        object-fit: cover;
+      }
+      .post-info a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 0.9rem;
+        display: block;
+        margin-bottom: 5px;
+      }
+      .post-info span {
+        color: #666;
+        font-size: 0.8rem;
+      }
+      .image-wrapper {
+        position: relative;
+        width: 70px;
+        height: 70px;
+        border-radius: 8px;
+        overflow: hidden;
+        cursor: pointer;
+      }
+      .image-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: 0.4s ease;
+      }
+      .overlay-link {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.322);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 2;
+      }
+      .overlay-link i {
+        color: #fff !important;
+        font-size: 1.2rem;
+        transform: scale(0.5);
+        transition: 0.3s ease;
+      }
+      .image-wrapper:hover .overlay-link {
+        opacity: 1;
+        visibility: visible;
+      }
+      .image-wrapper:hover .overlay-link i {
+        transform: scale(1);
+      }
+
+      .image-wrapper:hover img {
+        filter: blur(2px);
+        transform: scale(1.1);
+      }
+
+      .shortcuts-wrapper {
+        display: flex;
+        gap: 20px;
+      }
+      .footer-links {
+        list-style: none;
+        padding: 0;
+      }
+      .footer-links li {
+        margin-bottom: 15px;
+      }
+      .footer-links a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: 0.3s;
+      }
+      .footer-links a i {
+        color: #ff6600;
+        margin-right: 10px;
+        font-size: 0.7rem;
+      }
+      .footer-links a:hover {
+        color: #ff6600;
+        padding-left: 5px;
+      }
+      .working-desc {
+        color: #888;
+        font-size: 0.9rem;
+        margin-bottom: 25px;
+        line-height: 1.6;
+      }
+      .day-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 12px 0;
+        border-bottom: 1px solid #222;
+        font-size: 0.9rem;
+      }
+      .orange-text {
+        color: #ff6600;
+      }
+      .footer-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 30px 0;
+        border-top: 1px solid #222;
+        color: #555;
+        font-size: 0.9rem;
+      }
+      .payment-icons i {
+        font-size: 1.5rem;
+        margin-left: 15px;
+        color: #7d7979;
+      }
+      .fixed-controls {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        display: flex;
+        gap: 15px;
+        z-index: 1000;
+      }
+      .control-btn {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: none;
+        background-color: #ff6600;
+        color: white;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .control-btn:hover {
+        background-color: white;
+        color: #ff6600;
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(255, 102, 0, 0.3);
+      }
+      .contact-popup {
+        position: fixed;
+        bottom: 100px;
+        right: 30px;
+        width: 320px;
+        background: #111;
+        border-radius: 20px;
+        padding: 25px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        display: none;
+        z-index: 999;
+      }
+      .contact-popup.active {
+        display: block;
+        animation: fadeInUp 0.3s ease;
+      }
+
+      .input-group {
+        position: relative;
+        margin-bottom: 15px;
+      }
+      .contact-popup input,
+      .contact-popup textarea {
+        width: 100%;
+        background: #1a1a1a;
+        border: 1px solid #333;
+        padding: 12px;
+        border-radius: 10px;
+        color: white;
+        outline: none;
+      }
+      .error-box {
+        position: absolute;
+        left: -45px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: #ff0000;
+        color: white;
+        width: 30px;
+        height: 30px;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+      }
+      .error-box::after {
+        content: "";
+        position: absolute;
+        right: -5px;
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        border-left: 5px solid #ff0000;
+      }
+      .has-error .error-box {
+        display: flex;
+      }
+      .has-error .form-error-msg {
+        display: block;
+      }
+      .form-error-msg {
+        color: #ff0000;
+        font-size: 0.8rem;
+        margin-top: 15px;
+        display: none;
+      }
+
+      .send-btn {
+        width: 100%;
+        background: #ff6600;
+        border: none;
+        padding: 12px;
+        border-radius: 30px;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @media (max-width: 992px) {
+        .footer-contact-bar {
+          flex-direction: column;
+          gap: 40px;
+          padding: 40px 20px;
+        }
+        .contact-item a {
+          font-size: 1.2rem;
+        }
+        .footer-main-content {
+          grid-template-columns: 1fr;
+          gap: 50px;
+          padding: 50px 0;
+          text-align: center;
+        }
+        .footer-title::after {
+          left: 50%;
+          transform: translateX(-50%);
+        }
+        .office-info li {
+          justify-content: center;
+        }
+        .news-post {
+          flex-direction: column;
+          align-items: center;
+        }
+        .post-info {
+          text-align: center;
+        }
+        .shortcuts-wrapper {
+          flex-direction: column;
+          align-items: center;
+          gap: 0;
+        }
+        .footer-bottom {
+          flex-direction: column;
+          gap: 20px;
+          text-align: center;
+        }
+        .payment-icons {
+          margin-top: 10px;
+        }
+        .payment-icons i {
+          margin: 0 10px;
+        }
+      }
+      @media (max-width: 480px) {
+        .contact-item a {
+          font-size: 1rem;
+        }
+
+        .site-footer {
+          padding: 0 20px;
+        }
+      }
+      /* ================= EMPTY STATE ================= */
+      .empty-msg {
+        text-align: center;
+        padding: 50px;
+        color: #666;
+      }
+
+      @media (max-width: 600px) {
+        .cart-card {
+          flex-direction: column;
+          text-align: center;
+        }
+        .cart-summary {
+          justify-content: center;
+          text-align: center;
+        }
+      }
+
+      .breadcrumb-nav {
+        display: inline-flex;
+        align-items: center;
+        background-color: #111;
+        padding: 8px 20px;
+        border-radius: 30px;
+        position: absolute;
+        top: 70px;
+        left: 70px;
+        z-index: 100;
+        border: 1px solid #222;
+      }
+      .bc-item {
+        color: #fff;
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        transition: color 0.3s ease;
+      }
+      a {
+        text-decoration: none;
+      }
+      .bc-separator {
+        color: #555;
+        margin: 0 12px;
+        font-size: 0.8rem;
+      }
+
+      .home-link:hover {
+        color: #ff6a07;
+      }
+
+      .active-page {
+        color: #888;
+        cursor: default;
+      }
+      .active-page:hover {
+        color: #ff6a07;
+      }
+      @media (max-width: 768px) {
+        .breadcrumb-nav {
+          position: static;
+          margin: 40px auto 20px auto;
+          display: flex;
+          width: fit-content;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="breadcrumb-nav">
+      <a href="index.html" class="bc-item home-link">
+        <i class="fas fa-home"></i>
+      </a>
+      <span class="bc-separator"><i class="fas fa-bicycle"></i></span>
+      <a href="cart.html"><span class="bc-item active-page">cart</span></a>
+    </nav>
+    <div class="container">
+      <h1>Your Shopping Cart</h1>
+
+      <div class="products-grid" id="cartContainer"></div>
+
+      <div class="cart-summary" id="cartSummary" style="display: none">
+        <div class="total-box">
+          <h3>Total Amount:</h3>
+          <span id="totalPrice">$0</span>
+        </div>
+        <a href="checkout.html" class="checkout-btn"
+          >Proceed to Checkout <i class="fas fa-arrow-right"></i
+        ></a>
+      </div>
+
+      <div id="emptyMsg" class="empty-msg" style="display: none">
+        <i
+          class="fas fa-shopping-cart"
+          style="font-size: 4rem; margin-bottom: 20px"
+        ></i>
+        <h2>Your cart is empty</h2>
+        <p style="margin-top: 10px">Go back to the shop to add some bikes!</p>
+        <br />
+        <a href="shop.html" class="checkout-btn">Return to Shop</a>
+      </div>
+    </div>
+    <footer class="site-footer">
+      <div class="footer-contact-bar">
+        <div class="contact-item">
+          <span
+            class="top-label"
+            style="
+              color: #ff6600;
+              display: block;
+              font-size: 0.9rem;
+              margin-bottom: 12px;
+            "
+            >Pre-sale Questions</span
+          >
+          <a href="mailto:help@xtrabicycle.com">help@xtrabicycle.com</a>
+        </div>
+        <div class="contact-item">
+          <span
+            class="top-label"
+            style="
+              color: #ff6600;
+              display: block;
+              font-size: 0.9rem;
+              margin-bottom: 12px;
+            "
+            >Call Us</span
+          >
+          <a href="tel:+180023456789">+1 800 2345 6789</a>
+        </div>
+        <div class="contact-item">
+          <span
+            class="top-label"
+            style="
+              color: #ff6600;
+              display: block;
+              font-size: 0.9rem;
+              margin-bottom: 12px;
+            "
+            >Our Location</span
+          >
+          <a href="#">#2354, Beverly Hills, LA</a>
+        </div>
+      </div>
+
+      <div class="footer-main-content">
+        <div class="footer-column">
+          <h3 class="footer-title">Office</h3>
+          <ul class="office-info">
+            <li>
+              <span class="icon-circle1"
+                ><i class="fas fa-map-marker-alt"></i
+              ></span>
+              <span class="text">121 King Street, New York</span>
+            </li>
+            <li>
+              <span class="icon-circle1"><i class="fas fa-phone-alt"></i></span>
+              <span class="text">+1 (800) 333 44 55</span>
+            </li>
+            <li>
+              <span class="icon-circle1"><i class="fas fa-envelope"></i></span>
+              <span class="text">xtrabike@gmail.com</span>
+            </li>
+            <li>
+              <span class="icon-circle1"
+                ><i class="fas fa-mobile-alt"></i
+              ></span>
+              <span class="text">+1 (800) 333 99 88</span>
+            </li>
+            <li>
+              <span class="icon-circle1"><i class="fab fa-twitter"></i></span>
+              <span class="text">@xtra_bikeshop</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3 class="footer-title">News</h3>
+          <div class="news-list">
+            <div class="news-post">
+              <div class="image-wrapper">
+                <img src="images/article1.jfif" alt="bike" />
+                <div class="overlay-link">
+                  <i class="fas fa-link"></i>
+                </div>
+              </div>
+              <div class="post-info">
+                <a href="#">Top 7 Must have Accessories for...</a>
+                <span>10 June 2024 <i class="far fa-comment"></i> 24</span>
+              </div>
+            </div>
+
+            <div class="news-post">
+              <div class="image-wrapper">
+                <img src="images/articl2.jfif" alt="bike" />
+                <div class="overlay-link">
+                  <i class="fas fa-link"></i>
+                </div>
+              </div>
+              <div class="post-info">
+                <a href="#">How to Choose the Perfect Bike for Yo...</a>
+                <span>10 June 2024 <i class="far fa-comment"></i> 18</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h3 class="footer-title">Shortcuts</h3>
+          <div class="shortcuts-wrapper">
+            <ul class="footer-links">
+              <li>
+                <a href="#"><i class="fas fa-chevron-right"></i> Home</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-chevron-right"></i> City Store</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-chevron-right"></i> News</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-chevron-right"></i> Clients</a>
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-chevron-right"></i> Consultation</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-chevron-right"></i> Consultation</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-chevron-right"></i> Consultation</a
+                >
+              </li>
+            </ul>
+            <ul class="footer-links">
+              <li>
+                <a href="#"><i class="fas fa-chevron-right"></i> Maps</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-chevron-right"></i> Careers</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-chevron-right"></i> Employees</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-chevron-right"></i> Teams</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-chevron-right"></i> Benefits</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-chevron-right"></i> Benefits</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h3 class="footer-title">Working Hours</h3>
+          <p class="working-desc">
+            Our support available to help you 24 hours a day, seven days a week.
+          </p>
+          <div class="schedule">
+            <div class="day-row">
+              <span>Monday to Friday</span><span>8AM - 4PM</span>
+            </div>
+            <div class="day-row">
+              <span>Saturday</span><span>8AM - 1PM</span>
+            </div>
+            <div class="day-row">
+              <span>Sunday</span><span class="orange-text">Closed</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>Copyright © 2026 Xtra Theme. All Rights Reserved.</p>
+        <div class="payment-icons">
+          <i class="fab fa-cc-visa"></i>
+          <i class="fab fa-cc-mastercard"></i>
+          <i class="fab fa-cc-paypal"></i>
+        </div>
+      </div>
+    </footer>
+    <div class="fixed-controls">
+      <button class="control-btn message-toggle" id="openForm">
+        <i class="fas fa-envelope"></i>
+      </button>
+      <button class="control-btn scroll-top" id="scrollTop">
+        <i class="fas fa-chevron-up"></i>
+      </button>
+    </div>
+    <div class="contact-popup" id="contactPopup">
+      <div class="popup-content">
+        <form id="contactForm">
+          <div class="input-group">
+            <input type="text" placeholder="Your Name (*)" id="nameInput" />
+            <span class="error-box"><i class="fas fa-times"></i></span>
+          </div>
+          <div class="input-group">
+            <input type="email" placeholder="Your Email (*)" id="emailInput" />
+            <span class="error-box"><i class="fas fa-times"></i></span>
+          </div>
+          <textarea placeholder="Your Message"></textarea>
+
+          <button type="submit" class="send-btn">Send Message</button>
+
+          <p class="form-error-msg">
+            One or more fields have an error. Please check and try again.
+          </p>
+        </form>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
